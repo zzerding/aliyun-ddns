@@ -96,6 +96,7 @@ func GetAliIpAndRecordId() (AliIp, RecordId string) {
 	return "", ""
 }
 
+// UpdateDNS 更新DNS
 func UpdateDNS(recordId string) error {
 	var request *alidns.UpdateDomainRecordRequest
 	var response *alidns.UpdateDomainRecordResponse
@@ -145,6 +146,6 @@ func main() {
 	}
 	go SetDns()
 	for {
-		time.Sleep(time.Second * 10)
+		time.Sleep(time.Hour * 3)
 	}
 }

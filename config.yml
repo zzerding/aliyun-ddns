@@ -1,7 +1,7 @@
 #阿里云key——id
-access_key_id:
+access_key_id: LTAI5t7prVWuwqSYFdnCa9Du
 #阿里云secret
-access_secret:
+access_secret: 7QxgEKiJRz6lHKWTgtARc64VJ2qO0k
 #需要设置DNS的域名
 dns_domain: test.api
 #阿里云一级域名
