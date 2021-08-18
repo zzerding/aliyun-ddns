@@ -43,7 +43,7 @@ func GetWanIP() (wanIp string) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	wanIp = result.String()
+	wanIp = result.String()[:len(result.String())-1]
 	return wanIp
 }
 
@@ -64,6 +64,7 @@ func CreateAliDns() {
 	}
 	if err != nil {
 		log.Println(err)
+		return
 	}
 }
 
@@ -129,7 +130,8 @@ func UpdateDNS(recordId string) error {
 
 func SetDns() {
 	AliIp, RecordId := GetAliIpAndRecordId()
-	if AliIp != GetWanIP() {
+	wanIp := GetWanIP()
+	if AliIp != wanIp {
 		err := UpdateDNS(RecordId)
 		if err != nil {
 			log.Println(err)
@@ -144,8 +146,8 @@ func main() {
 	if AliIp == "" && RecordId == "" {
 		CreateAliDns()
 	}
-	go SetDns()
 	for {
-		time.Sleep(time.Hour * 3)
+		go SetDns()
+		time.Sleep(time.Hour * 24)
 	}
 }
