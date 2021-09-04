@@ -148,6 +148,6 @@ func main() {
 	}
 	for {
 		go SetDns()
-		time.Sleep(time.Hour * 1)//
+		time.Sleep(time.Hour * 1)//这里时间最好不要超过1小时,可能导致解析不及时
 	}
 }
