@@ -148,6 +148,6 @@ func main() {
 	}
 	for {
 		go SetDns()
-		time.Sleep(time.Hour * 24)
+		time.Sleep(time.Hour * 1)//
 	}
 }
